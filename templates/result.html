@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Image Analysis Result</h1>
+    </header>
+
+    <div class="container result-container">
+        
+        <h3>Analysis Results:</h3>
+        <ul>
+            {% for concept in concepts %}
+            <li class="concept" >
+                <span class="concept-name">{{ concept.name }}:</span>
+                <span class="percentage">{{ concept.value }}%</span>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h3>Gemini Narrative:</h3>
+        <p>{{ narrative }}</p>
+    </div>
+
+    <a class="btn-back" href="/">Upload Another Image</a>
+
+</body>
+</html>
